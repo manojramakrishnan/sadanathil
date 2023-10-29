@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 
 	private UserRepository userRepository;
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder encoder;
 	
 	public UserServiceImpl(UserRepository userRepository) {
 		super();
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		Users user = new Users(registrationDto.getFirstName(), 
 				registrationDto.getLastName(), registrationDto.getEmail(),
-				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
+				encoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
 		
 		return userRepository.save(user);
 	}
