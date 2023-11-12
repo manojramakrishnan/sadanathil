@@ -1,8 +1,6 @@
 package com.sadanathil.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 @Entity
 @Table(name="users",uniqueConstraints=@UniqueConstraint(columnNames="email"))
@@ -12,6 +10,9 @@ public class User {
 	private String password;
 	private String role;
 	private String fullName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private Long id;
 	
 	public User() {

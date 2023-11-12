@@ -3,12 +3,7 @@ package com.sadanathil.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -22,7 +17,8 @@ public class SubjectsModel {
 	private Long subjectId;
 	@Column(name="subject_name")
 	private String subjectName;
-	
+
+	@OneToMany(mappedBy = "subjectsModel", cascade = CascadeType.ALL)
 	private Set<TeachersModel> teacher = new HashSet<>();
 	
 	public Set<TeachersModel> getTeachersModel(){
