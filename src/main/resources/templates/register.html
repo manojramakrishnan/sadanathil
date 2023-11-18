@@ -19,8 +19,8 @@
           th:object="${user}"
   >
     <div class="form-group">
-      <label for="fullname">Fullname:</label>
-      <input th:field="*{fullname}" type="text" id="fullname" name="fullname" placeholder="Enter your fullname" required>
+      <label for="fullName">fullName:</label>
+      <input th:field="*{fullName}" type="text" id="fullName" name="fullName" placeholder="Enter your fullName" required>
     </div>
 
     <div class="form-group">
@@ -32,6 +32,14 @@
       <label for="password">Password:</label>
       <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
     </div>
+    <div class="form-group">
+                    <label for="role"> Role </label> :
+                    <select name="role" id="role" class="form-control">
+                        <option value="admin">admin</option>
+                        <option value="student">student</option>
+                        <option value="teacher">teacher</option>
+                    </select>
+                </div>
     <input type="submit" value="Register">
   </form>
 

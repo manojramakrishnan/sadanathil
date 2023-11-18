@@ -19,7 +19,7 @@ public class RegistrationServiceImpl implements IRegistrationService {
 	
 	@Override
 	public User save(RegistrationDto registrationDto) {
-		User user= new User(registrationDto.getEmail(),passwordEncoder.encode(registrationDto.getPassword()),registrationDto.getFullName(),registrationDto.getRole());
+		User user= new User(registrationDto.getEmail(),passwordEncoder.encode(registrationDto.getPassword()),registrationDto.getRole(),registrationDto.getFullName());
 		
 		return userRepository.save(user);
 	}
