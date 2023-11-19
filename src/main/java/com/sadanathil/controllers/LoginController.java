@@ -35,6 +35,7 @@ public class LoginController {
 
 	@GetMapping(value="/getLogin")
 	public String  login(Model model, @ModelAttribute("login") LoginDto loginDto) {
+		System.err.println("inside login method....");
 		model.addAttribute("login", loginDto);
 		return "login";
 	}
@@ -42,9 +43,14 @@ public class LoginController {
 	@PostMapping(value="/postLogin")
 	public String login(@ModelAttribute LoginDto loginDto, HttpSession session, HttpServletResponse response) {
 		if(loginDto.getRole().equals("admin"))	{
+			System.err.println("inside post login method");
 			List<AdminModel> adminList=adminService.getAllAdmins();
+			System.err.println("inside post login method list size :: " + adminList.size());
+			System.err.println("inside post login method data :: " + loginDto.getTcNumber());
 			for(AdminModel adminModel: adminList) {
-				if(adminModel.getTcNumber().equals(loginDto.getTcNumber()) && adminModel.getPassword().equals(loginDto.getPassword())) {
+				System.err.println("inside post login method admindata :: " + adminModel.getTcNumber());
+				if(adminModel.getTcNumber().equals(loginDto.getTcNumber())) {
+					System.err.println("inside post login method tcnumber check");
 					session.setAttribute("admin", adminModel);
 					return "redirect:/admin/getAdminDashboard";
 				}

@@ -5,7 +5,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-    <title>Management </title>
+    <title>Admin </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@
         <nav class="navbar header-navbar pcoded-header">
             <div class="navbar-wrapper">
                 <div class="navbar-logo" style="background: #eea236">
-                    <div style="font-weight:bold;">Management Page</div>
+                    <div style="font-weight:bold;">Admin Page</div>
                     <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
                         <i class="ti-menu"></i>
                     </a>
@@ -87,7 +87,7 @@
                         <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Students</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="">
-                                <a th:href="@{/management/getManagemetPage}" class="waves-effect waves-dark">
+                                <a th:href="@{/admin/getAdminPage}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Students</span>
                                     <span class="pcoded-mcaret"></span>
@@ -97,7 +97,7 @@
                         <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Teachers</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="">
-                                <a th:href="@{/management/getTeacherPage}" class="waves-effect waves-dark">
+                                <a th:href="@{/admin/getTeacherPage}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Teachers</span>
                                     <span class="pcoded-mcaret"></span>
@@ -107,7 +107,7 @@
                         <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Subjects</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="">
-                                <a th:href="@{/management/getLessonPage}" class="waves-effect waves-dark">
+                                <a th:href="@{/admin/getLessonPage}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Subjects</span>
                                     <span class="pcoded-mcaret"></span>
@@ -117,7 +117,7 @@
                         <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Fees</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="">
-                                <a th:href="@{/management/getFeesPage}" class="waves-effect waves-dark">
+                                <a th:href="@{/admin/getFeesPage}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Fees</span>
                                     <span class="pcoded-mcaret"></span>
@@ -178,8 +178,8 @@
     }
 
     var user = getCookie("UserInfo");
-    $('#userName').text("Manager : " + user.split("/")[0]);
-    $('#userName1').text("Manager : " + user.split("/")[0]);
+    $('#userName').text("Admin : " + user.split("/")[0]);
+    $('#userName1').text("Admin : " + user.split("/")[0]);
 
 </script>
 </body>
