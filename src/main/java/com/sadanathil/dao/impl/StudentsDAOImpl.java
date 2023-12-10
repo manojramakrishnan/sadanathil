@@ -1,5 +1,10 @@
 package com.sadanathil.dao.impl;
 
-public class StudentsDAOImpl {
+import org.springframework.stereotype.Component;
+
+import com.sadanathil.dao.IStudentsDAO;
+
+@Component
+public class StudentsDAOImpl implements IStudentsDAO{
 
 }

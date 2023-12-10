@@ -1,5 +1,10 @@
 package com.sadanathil.dao.impl;
 
-public class AdminDAOImpl {
+import org.springframework.stereotype.Component;
+
+import com.sadanathil.dao.IAdminDAO;
+
+@Component
+public class AdminDAOImpl implements IAdminDAO {
 
 }

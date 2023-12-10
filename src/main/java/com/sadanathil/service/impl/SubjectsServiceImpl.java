@@ -1,5 +1,10 @@
 package com.sadanathil.service.impl;
 
-public class SubjectsServiceImpl {
+import org.springframework.stereotype.Service;
+
+import com.sadanathil.service.ISubjectsService;
+
+@Service
+public class SubjectsServiceImpl implements ISubjectsService{
 
 }

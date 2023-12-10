@@ -1,5 +1,10 @@
 package com.sadanathil.service.impl;
 
-public class AdminServiceImpl {
+import org.springframework.stereotype.Service;
+
+import com.sadanathil.service.IAdminService;
+
+@Service
+public class AdminServiceImpl implements IAdminService {
 
 }
