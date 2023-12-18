@@ -45,12 +45,12 @@ public class TeachersModel {
 	private Date recordTime;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="Admin_Model_Id")
+	@JoinColumn(name="Admin_Id")
 	@JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
 	private AdminModel adminModel;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="Subjects_Model_Id")
+	@JoinColumn(name="Subjects_Id")
 	@JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
 	private SubjectsModel subjectsModel;
 

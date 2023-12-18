@@ -1,7 +1,10 @@
 package com.sadanathil.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,8 +53,22 @@ public class StudentsModel {
 	private Date recordTime;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="Admin_Model_Id")
+	@JoinColumn(name="Admin_Id")
 	@JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
 	private AdminModel adminModel;
+	
+	@OneToMany(mappedBy="StudentsModel", cascade=CascadeType.ALL)
+	private Set<StudentInfoModel> studentInfoModel= new HashSet<>();
+	public Set<StudentInfoModel> getStudentInfoModel(){
+		return studentInfoModel;
+	}
+	
+	public void setTeachersModel(Set<StudentInfoModel> studentInfoModel) {
+		this.studentInfoModel=studentInfoModel;
+		for(StudentInfoModel sm : studentInfoModel ) {
+			sm.setStudentsModel(this);
+		}
+	}
+
 	
 }

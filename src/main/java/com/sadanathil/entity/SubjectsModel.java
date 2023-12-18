@@ -28,13 +28,13 @@ public class SubjectsModel {
 	
 	@OneToMany(mappedBy="SubjectsModel", cascade=CascadeType.ALL)
 	private Set<TeachersModel> teachersModel= new HashSet<>();
-	public Set<TeachersModel> getTeachersModels(){
+	public Set<TeachersModel> getTeachersModel(){
 		return teachersModel;
 	}
 	
-	public void setTeachersModel(Set<TeachersModel> teachersModels) {
-		this.teachersModel=teachersModels;
-		for(TeachersModel sm : teachersModels ) {
+	public void setTeachersModel(Set<TeachersModel> teachersModel) {
+		this.teachersModel=teachersModel;
+		for(TeachersModel sm : teachersModel ) {
 			sm.setSubjectsModel(this);
 		}
 	}

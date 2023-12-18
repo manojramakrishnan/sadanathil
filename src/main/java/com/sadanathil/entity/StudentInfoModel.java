@@ -40,7 +40,7 @@ public class StudentInfoModel {
 	private int teacherId;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="Students_Model_Id")
+	@JoinColumn(name="Students_Id")
 	@JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
 	private StudentsModel studentsModel;
 	

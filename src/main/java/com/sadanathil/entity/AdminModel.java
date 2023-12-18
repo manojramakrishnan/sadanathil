@@ -62,9 +62,9 @@ public class AdminModel {
 		return teachersModel;
 	}
 	
-	public void setTeachersModel(Set<TeachersModel> teachersModels) {
-		this.teachersModel=teachersModels;
-		for(TeachersModel sm : teachersModels ) {
+	public void setTeachersModel(Set<TeachersModel> teachersModel) {
+		this.teachersModel=teachersModel;
+		for(TeachersModel sm : teachersModel ) {
 			sm.setAdminModel(this);
 		}
 	}
