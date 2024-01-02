@@ -8,4 +8,6 @@ public interface IStudentsDAO {
 
 	List<StudentsModel> getAllStudents();
 
+	StudentsModel getStudentById(Long id);
+
 }

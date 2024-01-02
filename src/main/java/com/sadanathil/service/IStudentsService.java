@@ -8,4 +8,6 @@ public interface IStudentsService {
 
 	List<StudentsModel> getAllStudents();
 
+	StudentsModel getStudentById(Long id);
+
 }

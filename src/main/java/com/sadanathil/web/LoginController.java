@@ -41,12 +41,12 @@ public class LoginController {
 		return "login";
 	}
 	
-	@PostMapping(value="/postLogin")
+	@PostMapping(value="/postlogin")
 	public String login(@ModelAttribute LoginDto loginDto, HttpSession session, HttpServletResponse response) {
 		if(loginDto.getRole().equals("students")) {
 			List<StudentsModel> studentList= studentsService.getAllStudents();
 			for(StudentsModel studentsModel : studentList) {
-				if(studentsModel.getTcNumber().equals(loginDto.getTcNo()) && (studentsModel.getPassword().equals(loginDto.getPassword()))) {
+				if(studentsModel.getTcNumber().equals(loginDto.getTcNo()) && studentsModel.getPassword().equals(loginDto.getPassword())) {
 					session.setAttribute("student", studentsModel);
 					return "redirect:/student/getStudentPage";
 				}
@@ -55,7 +55,7 @@ public class LoginController {
 		else if(loginDto.getRole().equals("teachers")) {
 			List<TeachersModel> teacherList= teachersService.getAllTeachers();
 			for(TeachersModel teachersModel : teacherList) {
-				if(teachersModel.getTcNumber().equals(loginDto.getTcNo()) && (teachersModel.getPassword().equals(loginDto.getPassword()))) {
+				if(teachersModel.getTcNumber().equals(loginDto.getTcNo()) && teachersModel.getPassword().equals(loginDto.getPassword())) {
 					session.setAttribute("teacher", teachersModel);
 					return "redirect:/teacher/getTeacherPage";
 				}
@@ -64,12 +64,24 @@ public class LoginController {
 		else if(loginDto.getRole().equals("admin")) {
 			List<AdminModel> adminList= adminservice.getAllAdmins();
 			for(AdminModel adminModel : adminList) {
-				if(adminModel.getTcNumber().equals(loginDto.getTcNo()) && (adminModel.getAdminPassword().equals(loginDto.getPassword()))) {
+				if(adminModel.getTcNumber().equals(loginDto.getTcNo()) && adminModel.getAdminPassword().equals(loginDto.getPassword())) {
 					session.setAttribute("admin", adminModel);
 					return "redirect:/admin/getAdminPage";
 				}
 			}
 		}
 		return "redirect:/login/getLogin";
+	}
+	
+	
+	@GetMapping(value="/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login/getLogin";
+	}
+	
+	@GetMapping(value="/Authorization")
+	public String getAuthErrorPAge() {
+		return "authErrorPage";
 	}
 }
